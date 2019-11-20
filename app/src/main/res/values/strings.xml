@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Patient List</string>
+
+    <!-- Login Activity -->
+    <string name="welcome">Welcome Back,</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="logIn">Log In</string>
+    <string name="errEmailEmpty">Please provide email address.</string>
+    <string name="errEmailInvalid">Email address is invalid.</string>
+    <string name="errPasswordEmpty">Please provide password.</string>
+    <string name="errPasswordMinLength">Password minimum length is %1$s.</string>
+    <string name="errPasswordSpecialChar">Password should have at least one special character.</string>
+    <string name="errPasswordUpperCase">Password should have at least one upper case character.</string>
+    <string name="errPasswordLowerCase">Password should have at least one lower case character.</string>
+    <string name="errPasswordNumber">Password should have at least one number.</string>
+    <string name="loginAuthError">Unable to authenticate, please make sure your credentials are correct.</string>
+
+    <!-- Details Activity -->
+    <string name="searchPatientRecords">Search for patient records…</string>
+    <string name="noResults">No results found</string>
+    <string name="profilePhoto">Profile photo</string>
+
+    <!-- Network Messages -->
+    <string name="networkError">Please enable internet.</string>
+
+    <!-- Keys -->
+    <string name="sessionKey">Session</string>
+</resources>

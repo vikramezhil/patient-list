@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@android:color/black</color>
+    <color name="colorPrimaryDark">@android:color/black</color>
+    <color name="colorAccent">#47B9EC</color>
+    <color name="textColor">@android:color/black</color>
+    <color name="editTextBoxColor">@android:color/black</color>
+    <color name="parentViewBg">@android:color/transparent</color>
+
+    <color name="errorColor">@android:color/holo_red_dark</color>
+
+</resources>

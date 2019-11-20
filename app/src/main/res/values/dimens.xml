@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Login Activity -->
+    <dimen name="logoHeight">150dp</dimen>
+    <dimen name="logoWidth">150dp</dimen>
+    <dimen name="progressBarSize">50dp</dimen>
+    <dimen name="loginLayoutMargin">10dp</dimen>
+    <dimen name="loginFieldsMargin">5dp</dimen>
+    <dimen name="loginHeaderTextSize">21sp</dimen>
+    <dimen name="loginTextSize">16sp</dimen>
+    <dimen name="loginButtonHeight">65dp</dimen>
+    <dimen name="loginButtonWidth">100dp</dimen>
+
+    <!-- Details Activity -->
+    <dimen name="detailsLayoutMargin">10dp</dimen>
+    <dimen name="detailsFieldsMargin">5dp</dimen>
+    <dimen name="detailsTextSize">16sp</dimen>
+    <dimen name="detailsCardMargin">10dp</dimen>
+    <dimen name="detailsCardCornerRadius">5dp</dimen>
+    <dimen name="detailsCardElevation">1dp</dimen>
+    <dimen name="patientImgCardSize">100dp</dimen>
+    <dimen name="patientImgCardMargin">2dp</dimen>
+    <dimen name="patientImgCardCornerRadius">2dp</dimen>
+    <dimen name="patientImgCardElevation">1dp</dimen>
+</resources>
