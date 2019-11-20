@@ -16,8 +16,6 @@ It is written in Kotlin and follows Android Live Data life cycle + MVVM architec
   <img src="https://user-images.githubusercontent.com/12429051/69249329-b459a400-0bd3-11ea-9996-f3c968f9f7f4.jpg" width="200"/>
   <img src="https://user-images.githubusercontent.com/12429051/69249370-c4718380-0bd3-11ea-89ca-269ba7ee4402.jpg" width="200"/>
   <img src="https://user-images.githubusercontent.com/12429051/69249378-c6d3dd80-0bd3-11ea-825a-13f9bc542712.jpg" width="200"/>
-  <img src="https://user-images.githubusercontent.com/12429051/69249378-c6d3dd80-0bd3-11ea-825a-13f9bc542712.jpg" width="200"/>
-  <img src="https://user-images.githubusercontent.com/12429051/69249389-ca676480-0bd3-11ea-9f3d-49893e1a53e2.jpg" width="200"/>
   <img src="https://user-images.githubusercontent.com/12429051/69249389-ca676480-0bd3-11ea-9f3d-49893e1a53e2.jpg" width="200"/>
   <img src="https://user-images.githubusercontent.com/12429051/69249362-bf143900-0bd3-11ea-8659-7e5c3d4dd10e.jpg" width="200"/>
 </p>
@@ -38,13 +36,17 @@ It is written in Kotlin and follows Android Live Data life cycle + MVVM architec
 <b><h3>Mac:</h3></b>
 
 ```./gradlew tasks – To get the list of available tasks```
+
 ```./gradlew installDevelopmentDebug – To install the development debug version of the app```
+
 ```./gradlew installProductionDebug – To install the production debug version of the app```
 
 <b><h3>Windows:</h3></b>
 
 ```gradlew tasks – To get the list of available tasks```
+
 ```gradlew installDevelopmentDebug – To install the development debug version of the app```
+
 ```gradlew installProductionDebug – To install the production debug version of the app```
 
 
