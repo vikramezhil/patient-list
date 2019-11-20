@@ -49,7 +49,7 @@ class PatientsListAdapter(private val patientsData: PatientListResponse, private
             view.tag = position
             view.tv_patientName.text = patient.firstName
             view.tv_patientID.text = patient.id.toString()
-            view.setOnClickListener { v -> listener.onPatientClickedID(patient.id) }
+            view.setOnClickListener { listener.onPatientClickedID(patient.id) }
         }
     }
 }

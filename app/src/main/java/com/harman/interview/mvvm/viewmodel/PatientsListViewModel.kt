@@ -32,6 +32,9 @@ class PatientsListViewModel(application: Application) : AndroidViewModel(applica
     var patientsList: MutableLiveData<PatientListResponse>? = null
     var logoutUser: MutableLiveData<Boolean>? = null
 
+    var mainPatientList: PatientListResponse
+    var filterPatientList: PatientListResponse
+
     init {
         patientsListDriver = PatientsListDriver(context)
 
@@ -42,6 +45,9 @@ class PatientsListViewModel(application: Application) : AndroidViewModel(applica
         toast = MutableLiveData<String>()
         patientsList = MutableLiveData<PatientListResponse>()
         logoutUser = MutableLiveData<Boolean>()
+
+        mainPatientList = PatientListResponse(ArrayList())
+        filterPatientList = mainPatientList
 
         retrieveToken()
     }
@@ -68,14 +74,27 @@ class PatientsListViewModel(application: Application) : AndroidViewModel(applica
     }
 
     /**
-     * Tracks the password
+     * Tracks the filter query
      * @param queryVal The query value
      * @param start The new count characters
      * @param before The old count characters
      * @param count The total characters count
      */
     fun trackFilterQuery(queryVal: CharSequence, start: Int, before: Int, count: Int) {
+        if (queryVal.isEmpty()) {
+            // Resetting the live data with the original results
+            patientsList?.value = mainPatientList
+        } else {
+            filterPatientList = PatientListResponse(ArrayList())
+            for (patient in mainPatientList.patients) {
+                if (patient.firstName.startsWith(queryVal.toString(), true) || patient.id.toString().startsWith(queryVal.toString())) {
+                    filterPatientList.patients.add(patient)
+                }
+            }
 
+            // Updating the live data with the filtered results
+            patientsList?.value = filterPatientList
+        }
     }
 
     /**
@@ -84,6 +103,7 @@ class PatientsListViewModel(application: Application) : AndroidViewModel(applica
     fun getPatients() {
         token?.let {
             if(token!!.isNotEmpty()) {
+                resetFilters()
                 patientsListDriver.patientsList(token!!, object: PatientsListListener {
                     override fun onPatientsSearchInProgress(progress: Boolean) {
                         searchInProgress?.set(progress)
@@ -92,6 +112,7 @@ class PatientsListViewModel(application: Application) : AndroidViewModel(applica
                     override fun onPatientsResponse(response: Response<PatientListResponse>) {
                         resultsEmpty?.set(false)
                         patientsList?.value = response.body()
+                        mainPatientList = response.body()!!
                     }
 
                     override fun onPatientsError(errMsg: String, sessionExpired: Boolean) {
@@ -107,5 +128,13 @@ class PatientsListViewModel(application: Application) : AndroidViewModel(applica
                 })
             }
         }
+    }
+
+    /**
+     * Resets the filers data
+     */
+    private fun resetFilters() {
+        mainPatientList = PatientListResponse(ArrayList())
+        filterPatientList = mainPatientList
     }
 }
