@@ -13,8 +13,10 @@ It is written in Kotlin and follows Android Live Data life cycle + MVVM architec
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/12429051/69249366-c0ddfc80-0bd3-11ea-9504-0c1379e7a9ab.jpg" width="200"/>
+  <img src="https://user-images.githubusercontent.com/12429051/69249382-c89da100-0bd3-11ea-9147-9ce0865040a0.jpg" width="200"/>
   <img src="https://user-images.githubusercontent.com/12429051/69249329-b459a400-0bd3-11ea-9996-f3c968f9f7f4.jpg" width="200"/>
   <img src="https://user-images.githubusercontent.com/12429051/69249370-c4718380-0bd3-11ea-89ca-269ba7ee4402.jpg" width="200"/>
+  <img src="https://user-images.githubusercontent.com/12429051/69249341-b91e5800-0bd3-11ea-972d-67fdaae803d0.jpg" width="200"/>
   <img src="https://user-images.githubusercontent.com/12429051/69249378-c6d3dd80-0bd3-11ea-825a-13f9bc542712.jpg" width="200"/>
   <img src="https://user-images.githubusercontent.com/12429051/69249389-ca676480-0bd3-11ea-9f3d-49893e1a53e2.jpg" width="200"/>
   <img src="https://user-images.githubusercontent.com/12429051/69249362-bf143900-0bd3-11ea-8659-7e5c3d4dd10e.jpg" width="200"/>
@@ -27,7 +29,7 @@ It is written in Kotlin and follows Android Live Data life cycle + MVVM architec
 * Clone the repository
 * Open the project in Android Studio
 * Wait for the gradle checks to complete
-* Select the flavor from Build Variants - Currently Dev And Prod are supported
+* Select the flavor from Build Variants - Currently <b>Dev</b> and <b>Prod</b> are supported
 * Connect either a real device or select a simulator image from Android Studio
 * Build and Run the app in the device
 
