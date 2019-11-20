@@ -1,9 +1,9 @@
-package com.harman.interview.services.patients
+package com.harman.interview.services.patientslist
 
 import com.harman.interview.mvvm.model.PatientListResponse
 import retrofit2.Response
 
-interface PatientsListener {
+interface PatientsListListener {
     /**
      * Sends an update on the patients search progress
      * @param progress The patients search running progress

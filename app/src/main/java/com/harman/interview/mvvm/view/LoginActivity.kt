@@ -30,11 +30,8 @@ class LoginActivity : AppCompatActivity() {
         binding?.loginVm = loginVm
 
         loginVm?.sessionToken?.observe(this, Observer { token ->
-            // Starting the details activity once the token is retrieved
-            val detailsIntent = Intent(this, PatientsListActivity::class.java)
-            detailsIntent.putExtra(resources.getString(R.string.sessionKey), token)
-            startActivity(detailsIntent)
-            finish()
+            // Starting the patient list screen once the token is retrieved
+            showPatientListScreen(token)
         })
 
         loginVm?.toggleKeyboard?.observe(this, Observer {
@@ -44,5 +41,16 @@ class LoginActivity : AppCompatActivity() {
         loginVm?.toast?.observe(this, Observer { toastMsg ->
             toastMsg.toast(this)
         })
+    }
+
+    /**
+     * Shows the patient list screen
+     * @param token The access token
+     */
+    private fun showPatientListScreen(token: String) {
+        val detailsIntent = Intent(applicationContext, PatientsListActivity::class.java)
+        detailsIntent.putExtra(resources.getString(R.string.sessionKey), token)
+        startActivity(detailsIntent)
+        finish()
     }
 }

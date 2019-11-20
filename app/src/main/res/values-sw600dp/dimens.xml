@@ -3,23 +3,23 @@
     <dimen name="progressBarSize">50dp</dimen>
 
     <!-- Login Activity -->
-    <dimen name="logoHeight">150dp</dimen>
-    <dimen name="logoWidth">150dp</dimen>
+    <dimen name="logoHeight">200dp</dimen>
+    <dimen name="logoWidth">200dp</dimen>
     <dimen name="loginLayoutMargin">10dp</dimen>
-    <dimen name="loginFieldsMargin">5dp</dimen>
-    <dimen name="loginHeaderTextSize">21sp</dimen>
-    <dimen name="loginTextSize">16sp</dimen>
-    <dimen name="loginButtonHeight">65dp</dimen>
+    <dimen name="loginFieldsMargin">2dp</dimen>
+    <dimen name="loginHeaderTextSize">30sp</dimen>
+    <dimen name="loginTextSize">25sp</dimen>
+    <dimen name="loginButtonHeight">85dp</dimen>
     <dimen name="loginButtonWidth">100dp</dimen>
 
     <!-- Patient List Activity -->
     <dimen name="detailsLayoutMargin">10dp</dimen>
-    <dimen name="detailsFieldsMargin">5dp</dimen>
-    <dimen name="detailsTextSize">16sp</dimen>
+    <dimen name="detailsFieldsMargin">15dp</dimen>
+    <dimen name="detailsTextSize">25sp</dimen>
     <dimen name="detailsCardMargin">10dp</dimen>
     <dimen name="detailsCardCornerRadius">5dp</dimen>
     <dimen name="detailsCardElevation">2dp</dimen>
-    <dimen name="patientImgCardSize">100dp</dimen>
+    <dimen name="patientImgCardSize">150dp</dimen>
     <dimen name="patientImgCardMargin">5dp</dimen>
     <dimen name="patientImgCardCornerRadius">2dp</dimen>
     <dimen name="patientImgCardElevation">1dp</dimen>
@@ -28,8 +28,8 @@
     <dimen name="profileCardCornerRadius">5dp</dimen>
     <dimen name="profileCardMargin">5dp</dimen>
     <dimen name="profileCardElevation">2dp</dimen>
-    <dimen name="profileImgHeight">300dp</dimen>
-    <dimen name="profileTextSize">16sp</dimen>
+    <dimen name="profileImgHeight">400dp</dimen>
+    <dimen name="profileTextSize">25sp</dimen>
     <dimen name="profileCellHeight">100dp</dimen>
     <dimen name="profileCellMargin">5dp</dimen>
 </resources>

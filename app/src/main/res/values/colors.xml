@@ -8,4 +8,5 @@
     <color name="parentViewBg">@android:color/transparent</color>
     <color name="lineColor">#c0c0c0</color>
     <color name="errorColor">@android:color/holo_red_dark</color>
+    <color name="nameColor">#2847A3</color>
 </resources>

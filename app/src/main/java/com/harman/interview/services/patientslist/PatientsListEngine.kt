@@ -1,4 +1,4 @@
-package com.harman.interview.services.patients
+package com.harman.interview.services.patientslist
 
 import android.content.Context
 import com.harman.interview.R
@@ -11,18 +11,18 @@ import retrofit2.Callback
 import retrofit2.Response
 
 /**
- * Patients Engine
+ * Patients List Engine
  * @author vikramezhil
  */
 
-open class PatientsEngine(private val context: Context) {
+open class PatientsListEngine(private val context: Context) {
 
     /**
-     * Triggers the patient details service
+     * Triggers the patients list service
      * @param token The authentication token
-     * @callback listener The class which implements the patients listener
+     * @callback listener The class which implements the patients list listListener
      */
-    protected fun triggerPatientDetails(token: String, listener: PatientsListener) {
+    protected fun triggerPatientsList(token: String, listener: PatientsListListener) {
         listener.onPatientsSearchInProgress(true)
         WebService.client.create(PatientApi::class.java).patients(token).enqueue(object: Callback<PatientListResponse> {
             override fun onResponse(call: Call<PatientListResponse>, response: Response<PatientListResponse>) {

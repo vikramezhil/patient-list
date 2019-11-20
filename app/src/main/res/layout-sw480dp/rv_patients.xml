@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/places_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/detailsCardMargin"
+    android:alpha="0.9"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="@dimen/detailsCardCornerRadius"
+    app:cardElevation="@dimen/detailsCardElevation"
+    app:cardUseCompatPadding="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/patientImgCardSize"
+            android:layout_height="@dimen/patientImgCardSize"
+            android:layout_margin="@dimen/patientImgCardMargin"
+            app:cardCornerRadius="@dimen/patientImgCardCornerRadius"
+            app:cardElevation="@dimen/patientImgCardElevation">
+
+            <ImageView
+                android:id="@+id/places_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_person_outline_24dp"
+                android:scaleType="fitXY"
+                android:contentDescription="@string/profilePhoto"/>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_patientName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:layout_margin="@dimen/detailsFieldsMargin"
+                android:textSize="@dimen/detailsTextSize"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:textStyle="normal"
+                android:text="@string/app_name"/>
+
+            <TextView
+                android:id="@+id/tv_patientID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:layout_margin="@dimen/detailsFieldsMargin"
+                android:textSize="@dimen/detailsTextSize"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:textStyle="normal"
+                android:text="@string/app_name"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

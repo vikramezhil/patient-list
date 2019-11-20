@@ -23,13 +23,14 @@
     <string name="profilePhoto">Profile photo</string>
     <string name="backToPatientList">Back to patient list page</string>
     <string name="patientsFetchError">Unable to fetch patient records, please try again later.</string>
-    <string name="swipeToRefresh">\n\nPull down to refresh in case if you want to try again.</string>
+    <string name="swipeToRefresh">\n\nPull down to refresh the page.</string>
 
     <!-- Patient Details Activity -->
     <string name="name">Name</string>
     <string name="address">Address</string>
     <string name="nhs">NHS Number</string>
     <string name="na">NA</string>
+    <string name="patientDetailFetchError">Unable to fetch patient detail, please try again later.</string>
 
     <!-- Network Messages -->
     <string name="networkError">Please enable internet.</string>
@@ -37,4 +38,5 @@
 
     <!-- Keys -->
     <string name="sessionKey">Session</string>
+    <string name="patientIDKey">patientID</string>
 </resources>

@@ -7,8 +7,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.harman.interview.R
 import com.harman.interview.mvvm.model.PatientListResponse
-import com.harman.interview.services.patients.PatientsDriver
-import com.harman.interview.services.patients.PatientsListener
+import com.harman.interview.services.patientslist.PatientsListDriver
+import com.harman.interview.services.patientslist.PatientsListListener
 import com.harman.interview.utils.Storage
 import retrofit2.Response
 
@@ -21,7 +21,7 @@ class PatientsListViewModel(application: Application) : AndroidViewModel(applica
 
     private val context = getApplication<Application>().applicationContext
 
-    private val patientsDriver: PatientsDriver
+    private val patientsListDriver: PatientsListDriver
     private var token: String? = null
 
     var resultsEmpty: ObservableBoolean? = null
@@ -33,7 +33,7 @@ class PatientsListViewModel(application: Application) : AndroidViewModel(applica
     var logoutUser: MutableLiveData<Boolean>? = null
 
     init {
-        patientsDriver = PatientsDriver(context)
+        patientsListDriver = PatientsListDriver(context)
 
         resultsEmpty = ObservableBoolean(false)
         searchInProgress = ObservableBoolean(false)
@@ -79,12 +79,12 @@ class PatientsListViewModel(application: Application) : AndroidViewModel(applica
     }
 
     /**
-     * Gets the patient details
+     * Gets the patients list
      */
     fun getPatients() {
         token?.let {
             if(token!!.isNotEmpty()) {
-                patientsDriver.patientDetails(token!!, object: PatientsListener {
+                patientsListDriver.patientsList(token!!, object: PatientsListListener {
                     override fun onPatientsSearchInProgress(progress: Boolean) {
                         searchInProgress?.set(progress)
                     }

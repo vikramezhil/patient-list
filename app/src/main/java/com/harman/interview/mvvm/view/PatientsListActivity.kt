@@ -32,8 +32,8 @@ class PatientsListActivity : AppCompatActivity() {
 
         patientsListVm?.patientsList?.observe(this, Observer { patientsList ->
             binding!!.rvDetails.adapter = PatientsListAdapter(patientsList, object: PatientClickListener {
-                override fun onPatientClickedPosition(position: Int) {
-                    showPatientDetailsScreen(position)
+                override fun onPatientClickedID(patientID: Int) {
+                    showPatientDetailsScreen(patientID)
                 }
             })
         })
@@ -51,17 +51,19 @@ class PatientsListActivity : AppCompatActivity() {
      * Shows the login screen
      */
     private fun showLoginScreen() {
-        val loginIntent = Intent(this, LoginActivity::class.java)
+        val loginIntent = Intent(applicationContext, LoginActivity::class.java)
         startActivity(loginIntent)
         finish()
     }
 
     /**
      * Shows the patient detail screen
-     * @param position The patient position
+     * @param patientID The patient ID
      */
-    private fun showPatientDetailsScreen(position: Int) {
-        val patientDetailIntent = Intent(this, PatientDetailActivity::class.java)
+    private fun showPatientDetailsScreen(patientID: Int) {
+        val patientDetailIntent = Intent(applicationContext, PatientDetailActivity::class.java)
+        patientDetailIntent.putExtra(resources.getString(R.string.sessionKey), intent.getStringExtra(resources.getString(R.string.sessionKey)))
+        patientDetailIntent.putExtra(resources.getString(R.string.patientIDKey), patientID)
         startActivity(patientDetailIntent)
     }
 }

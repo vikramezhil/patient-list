@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable name="patientListVm" type="com.harman.interview.mvvm.viewmodel.PatientsListViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_parent"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/detailsLayoutMargin"
+        android:background="@color/parentViewBg">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Dark.TextInputLayout"
+            android:id="@+id/il_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/searchPatientRecords"
+            android:visibility="@{patientListVm.searchInProgress ? View.GONE : patientListVm.resultsEmpty ? View.GONE : View.VISIBLE}"
+            android:textColorHint="@color/textColor">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_filter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/detailsFieldsMargin"
+                android:inputType="text"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/loginTextSize"
+                android:onTextChanged="@{patientListVm::trackFilterQuery}"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srl_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:onRefreshListener="@{() -> patientListVm.getPatients()}"
+            app:refreshing="@{patientListVm.searchInProgress}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_noResults"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:visibility="@{patientListVm.searchInProgress ? View.GONE : patientListVm.resultsEmpty ? View.VISIBLE : View.GONE}"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_noResults"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/detailsFieldsMargin"
+                        android:src="@drawable/no_results"
+                        android:contentDescription="@string/noResults"
+                        android:scaleType="fitXY"/>
+
+                    <TextView
+                        android:id="@+id/tv_noResults"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{patientListVm.searchError}"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/detailsTextSize"
+                        android:gravity="center"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="@{patientListVm.searchInProgress ? View.GONE : patientListVm.resultsEmpty ? View.GONE : View.VISIBLE}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </LinearLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
+</layout>

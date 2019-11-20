@@ -16,10 +16,10 @@ import kotlinx.android.synthetic.main.rv_patients.view.*
 
 interface PatientClickListener {
     /**
-     * Sends an update on the patient clicked position
-     * @param position The patient clicked position
+     * Sends an update on the patient clicked ID
+     * @param patientID The patient ID
      */
-    fun onPatientClickedPosition(position: Int)
+    fun onPatientClickedID(patientID: Int)
 }
 
 class PatientsListAdapter(private val patientsData: PatientListResponse, private val listener: PatientClickListener): RecyclerView.Adapter<PatientsListAdapter.PatientsHolderView>() {
@@ -37,12 +37,8 @@ class PatientsListAdapter(private val patientsData: PatientListResponse, private
         return patientsData.patients.size
     }
 
-    class PatientsHolderView(v: View, listener: PatientClickListener): RecyclerView.ViewHolder(v) {
+    class PatientsHolderView(v: View, private var listener: PatientClickListener): RecyclerView.ViewHolder(v) {
         private var view : View = v
-
-        init {
-            v.setOnClickListener { v -> listener.onPatientClickedPosition(v?.tag as Int) }
-        }
 
         /**
          * Binds the patients data
@@ -53,6 +49,7 @@ class PatientsListAdapter(private val patientsData: PatientListResponse, private
             view.tag = position
             view.tv_patientName.text = patient.firstName
             view.tv_patientID.text = patient.id.toString()
+            view.setOnClickListener { v -> listener.onPatientClickedID(patient.id) }
         }
     }
 }
