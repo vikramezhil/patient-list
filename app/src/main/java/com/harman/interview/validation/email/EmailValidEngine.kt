@@ -14,7 +14,7 @@ open class EmailValidEngine(private val context: Context) {
     /**
      * Triggers the email validation
      * @param email The email to validate
-     * @param listener The class instance which implements the email valid listener
+     * @callback listener The class instance which implements the email valid listener
      */
     protected fun triggerEmailValidation(email: String, listener: EmailValidListener) {
         if (email.isEmpty()) {

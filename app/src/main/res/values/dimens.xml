@@ -11,15 +11,24 @@
     <dimen name="loginButtonHeight">65dp</dimen>
     <dimen name="loginButtonWidth">100dp</dimen>
 
-    <!-- Details Activity -->
+    <!-- Patient List Activity -->
     <dimen name="detailsLayoutMargin">10dp</dimen>
     <dimen name="detailsFieldsMargin">5dp</dimen>
     <dimen name="detailsTextSize">16sp</dimen>
     <dimen name="detailsCardMargin">10dp</dimen>
     <dimen name="detailsCardCornerRadius">5dp</dimen>
-    <dimen name="detailsCardElevation">1dp</dimen>
+    <dimen name="detailsCardElevation">2dp</dimen>
     <dimen name="patientImgCardSize">100dp</dimen>
-    <dimen name="patientImgCardMargin">2dp</dimen>
+    <dimen name="patientImgCardMargin">5dp</dimen>
     <dimen name="patientImgCardCornerRadius">2dp</dimen>
     <dimen name="patientImgCardElevation">1dp</dimen>
+
+    <!-- Patient Details Activity -->
+    <dimen name="profileCardCornerRadius">5dp</dimen>
+    <dimen name="profileCardMargin">5dp</dimen>
+    <dimen name="profileCardElevation">2dp</dimen>
+    <dimen name="profileImgHeight">300dp</dimen>
+    <dimen name="profileTextSize">20sp</dimen>
+    <dimen name="profileCellHeight">50dp</dimen>
+    <dimen name="profileCellMargin">5dp</dimen>
 </resources>

@@ -12,7 +12,7 @@ class EmailValidDriver(context: Context): EmailValidEngine(context) {
     /**
      * Triggers the email validation
      * @param email The email to validate
-     * @param listener The class instance which implements the email valid listener
+     * @callback listener The class instance which implements the email valid listener
      */
     fun emailValidation(email: String, listener: EmailValidListener) {
         triggerEmailValidation(email, listener)

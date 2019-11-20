@@ -15,7 +15,7 @@ open class PsswdValidEngine(private val context: Context) {
      * Triggers the email validation
      * @param password The password to validate
      * @param min The minimum password length
-     * @param listener The class instance which implements the password valid listener
+     * @callback listener The class instance which implements the password valid listener
      */
     protected fun triggerPasswordValidation(password: String, min: Int, listener: PsswdValidListener) {
         if(password.isEmpty()) {

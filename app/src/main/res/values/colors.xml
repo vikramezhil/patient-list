@@ -6,7 +6,6 @@
     <color name="textColor">@android:color/black</color>
     <color name="editTextBoxColor">@android:color/black</color>
     <color name="parentViewBg">@android:color/transparent</color>
-
+    <color name="lineColor">#c0c0c0</color>
     <color name="errorColor">@android:color/holo_red_dark</color>
-
 </resources>

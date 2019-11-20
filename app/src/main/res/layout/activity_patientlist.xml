@@ -5,7 +5,7 @@
 
     <data>
         <import type="android.view.View"/>
-        <variable name="patientListVm" type="com.harman.interview.mvvm.viewmodel.PatientListViewModel"/>
+        <variable name="patientListVm" type="com.harman.interview.mvvm.viewmodel.PatientsListViewModel"/>
     </data>
 
     <LinearLayout
@@ -22,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/searchPatientRecords"
+            android:visibility="@{patientListVm.searchInProgress ? View.GONE : patientListVm.resultsEmpty ? View.GONE : View.VISIBLE}"
             android:textColorHint="@color/textColor">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -35,39 +36,55 @@
                 android:onTextChanged="@{patientListVm::trackFilterQuery}"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_details"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srl_details"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="@{patientListVm.resultsEmpty ? View.GONE : View.VISIBLE}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:onRefreshListener="@{() -> patientListVm.getPatients()}"
+            app:refreshing="@{patientListVm.searchInProgress}">
 
-        <LinearLayout
-            android:id="@+id/ll_noResults"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:visibility="@{patientListVm.resultsEmpty ? View.VISIBLE : View.GONE}"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/iv_noResults"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/no_results"
-                android:contentDescription="@string/noResults"
-                android:scaleType="fitXY"/>
-
-            <TextView
-                android:id="@+id/tv_noResults"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/noResults"
-                android:textColor="@color/textColor"
-                android:textSize="@dimen/detailsTextSize"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:textStyle="normal"/>
-        </LinearLayout>
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_noResults"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:visibility="@{patientListVm.searchInProgress ? View.GONE : patientListVm.resultsEmpty ? View.VISIBLE : View.GONE}"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_noResults"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/detailsFieldsMargin"
+                        android:src="@drawable/no_results"
+                        android:contentDescription="@string/noResults"
+                        android:scaleType="fitXY"/>
+
+                    <TextView
+                        android:id="@+id/tv_noResults"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{patientListVm.searchError}"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/detailsTextSize"
+                        android:gravity="center"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="@{patientListVm.searchInProgress ? View.GONE : patientListVm.resultsEmpty ? View.GONE : View.VISIBLE}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </LinearLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 </layout>

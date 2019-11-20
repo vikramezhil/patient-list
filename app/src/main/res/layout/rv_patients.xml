@@ -4,7 +4,7 @@
     android:id="@+id/places_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/detailsCardMargin"
+    android:layout_marginBottom="@dimen/detailsCardMargin"
     android:alpha="0.9"
     app:cardBackgroundColor="@android:color/white"
     app:cardCornerRadius="@dimen/detailsCardCornerRadius"
@@ -27,7 +27,7 @@
                 android:id="@+id/places_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_person_outline_black_24dp"
+                android:src="@drawable/ic_person_outline_24dp"
                 android:scaleType="fitXY"
                 android:contentDescription="@string/profilePhoto"/>
         </androidx.cardview.widget.CardView>

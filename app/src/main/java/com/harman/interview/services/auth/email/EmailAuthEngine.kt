@@ -21,32 +21,30 @@ open class EmailAuthEngine(private val context: Context) {
     /**
      * Triggers the email authentication
      * @param loginRequest The login request
-     * @param listener The class instance which implements the email auth listener
+     * @callback listener The class instance which implements the email auth listener
      */
     protected fun triggerEmailAuthenticate(loginRequest: LoginRequest, listener: EmailAuthListener) {
-        if(Network.isAvailable(context)) {
-            listener.onEmailAuthInProgress(true)
-            WebService.client.create(LoginApi::class.java).login(loginRequest).enqueue(object: Callback<LoginResponse> {
-                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                    listener.onEmailAuthInProgress(false)
-                    if (response.body() == null) {
-                        listener.onEmailAuthError(context.resources.getString(R.string.loginAuthError))
-                    } else {
-                        listener.onEmailAuthResponse(response)
-                    }
+        listener.onEmailAuthInProgress(true)
+        WebService.client.create(LoginApi::class.java).login(loginRequest).enqueue(object: Callback<LoginResponse> {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                listener.onEmailAuthInProgress(false)
+                if (response.isSuccessful && response.body() != null) {
+                    listener.onEmailAuthResponse(response)
+                } else if (response.code() == 401) {
+                    listener.onEmailAuthError(context.resources.getString(R.string.loginUnAuthorizedError))
+                } else {
+                    listener.onEmailAuthError(context.resources.getString(R.string.loginAuthError))
                 }
+            }
 
-                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                    listener.onEmailAuthInProgress(false)
-                    if(Network.isAvailable(context)) {
-                        listener.onEmailAuthError(context.resources.getString(R.string.loginAuthError))
-                    } else {
-                        listener.onEmailAuthError(context.resources.getString(R.string.networkError))
-                    }
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                listener.onEmailAuthInProgress(false)
+                if(Network.isAvailable(context)) {
+                    listener.onEmailAuthError(context.resources.getString(R.string.loginAuthError))
+                } else {
+                    listener.onEmailAuthError(context.resources.getString(R.string.networkError))
                 }
-            })
-        } else {
-            listener.onEmailAuthError(context.resources.getString(R.string.networkError))
-        }
+            }
+        })
     }
 }

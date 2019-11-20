@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
 
         loginVm?.sessionToken?.observe(this, Observer { token ->
             // Starting the details activity once the token is retrieved
-            val detailsIntent = Intent(this, PatientListActivity::class.java)
+            val detailsIntent = Intent(this, PatientsListActivity::class.java)
             detailsIntent.putExtra(resources.getString(R.string.sessionKey), token)
             startActivity(detailsIntent)
             finish()

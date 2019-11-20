@@ -15,14 +15,25 @@
     <string name="errPasswordLowerCase">Password should have at least one lower case character.</string>
     <string name="errPasswordNumber">Password should have at least one number.</string>
     <string name="loginAuthError">Unable to authenticate, please make sure your credentials are correct.</string>
+    <string name="loginUnAuthorizedError">Unauthorized authentication.</string>
 
-    <!-- Details Activity -->
+    <!-- Patient List Activity -->
     <string name="searchPatientRecords">Search for patient records…</string>
     <string name="noResults">No results found</string>
     <string name="profilePhoto">Profile photo</string>
+    <string name="backToPatientList">Back to patient list page</string>
+    <string name="patientsFetchError">Unable to fetch patient records, please try again later.</string>
+    <string name="swipeToRefresh">\n\nPull down to refresh in case if you want to try again.</string>
+
+    <!-- Patient Details Activity -->
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="nhs">NHS Number</string>
+    <string name="na">NA</string>
 
     <!-- Network Messages -->
     <string name="networkError">Please enable internet.</string>
+    <string name="sessionExpired">Your session has expired, please log in again.</string>
 
     <!-- Keys -->
     <string name="sessionKey">Session</string>
