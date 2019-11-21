@@ -37,19 +37,19 @@ It is written in Kotlin and follows Android Live Data life cycle + MVVM architec
 
 <b><h3>Mac:</h3></b>
 
-```./gradlew tasks – To get the list of available tasks```
+```./gradlew tasks``` – To get the list of available tasks
 
-```./gradlew installDevelopmentDebug – To install the development debug version of the app```
+```./gradlew installDevelopmentDebug``` – To install the development debug version of the app
 
-```./gradlew installProductionDebug – To install the production debug version of the app```
+```./gradlew installProductionDebug``` – To install the production debug version of the app
 
 <b><h3>Windows:</h3></b>
 
-```gradlew tasks – To get the list of available tasks```
+```gradlew tasks``` – To get the list of available tasks
 
-```gradlew installDevelopmentDebug – To install the development debug version of the app```
+```gradlew installDevelopmentDebug``` – To install the development debug version of the app
 
-```gradlew installProductionDebug – To install the production debug version of the app```
+```gradlew installProductionDebug``` – To install the production debug version of the app
 
 
 
